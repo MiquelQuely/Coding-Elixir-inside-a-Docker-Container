@@ -2,9 +2,9 @@ import Config
 
 # Configure your database
 config :sandbox, Sandbox.Repo,
-  username: System.get_env("DB_USERNAME") || "Database username not found",
-  password: System.get_env("DB_PASSWORD") || "Database password not found",
-  hostname: System.get_env("DB_HOST") || "Database host not found",
+  username: System.get_env("DB_USERNAME") || raise "Database username not found",
+  password: System.get_env("DB_PASSWORD") || raise "Database password not found",
+  hostname: System.get_env("DB_HOST") || raise "Database host not found",
   database: "sandbox_dev",
   port: System.get_env("DB_PORT") || raise "Database port not found",
   stacktrace: true,
