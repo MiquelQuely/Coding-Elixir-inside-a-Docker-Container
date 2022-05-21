@@ -18,6 +18,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_PORT: ${DB_PORT}
       DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
     depends_on:
       - database
   database:
@@ -29,6 +30,7 @@ services:
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     restart: always
     volumes:
       - ./sql-scripts/sandbox-init.sql:/docker-entrypoint-initdb.d/sandbox-init.sql"
