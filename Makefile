@@ -1,5 +1,8 @@
 DEFAULT_NAME := elixir_docker
 
+sing:
+	echo $(DEFAULT_NAME)
+
 docker_name ?= $(DEFAULT_NAME)
 docker_build:
 	docker build . -t $(docker_name)

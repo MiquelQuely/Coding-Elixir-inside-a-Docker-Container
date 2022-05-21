@@ -1,31 +1,37 @@
 version: "3"
 
 services:
-  phoenix:
+  elixir:
+    container_name: ${HOST}
+    tty: true
     build: 
       # Here we define that it should build from the current directory.
       context: .
     volumes:
-      - ./src:/app
+      - .:/src
     ports:
-      - "4000:4000"
+      - "${PORT}:4000"
     environment:
-      PGUSER: postgres
-      PGPASSWORD: postgres
-      PGDATABASE: database
-      PGPORT: 5432
-      
-      PGHOST: db
+      HOST: ${HOST}
+      PORT: ${PORT}
+      PGUSER: ${DB_USERNAME}
+      PGPASSWORD: ${DB_PASSWORD}
+      PGPORT: ${DB_PORT}
+      PGHOST: ${DB_HOST}
     depends_on:
-      - db
-  db:
+      - database
+  database:
+    container_name: ${DB_HOST}
     image: postgres:14.3
+    tty: true
+    ports:
+      - "${DB_PORT}:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     restart: always
     volumes:
+      - ./sql-scripts/sandbox-init.sql:/docker-entrypoint-initdb.d/sandbox-init.sql"
       - ./pgdata:/var/lib/postgresql/data
       
 volumes:

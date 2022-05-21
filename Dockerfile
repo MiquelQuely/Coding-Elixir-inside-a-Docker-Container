@@ -9,7 +9,7 @@ RUN apt-get update && \
     mix archive.install hex phx_new 1.6.9 --force && \
     mix local.rebar --force
 
-ENV APP_HOME /apps/
+ENV APP_HOME /code/
 RUN mkdir ${APP_HOME}
 COPY . ${APP_HOME}
 

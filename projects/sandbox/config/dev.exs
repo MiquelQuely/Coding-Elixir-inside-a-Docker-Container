@@ -2,10 +2,11 @@ import Config
 
 # Configure your database
 config :sandbox, Sandbox.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASSWORD"),
+  hostname: System.get_env("DB_HOST"),
   database: "sandbox_dev",
+  port: System.get_env("DB_PORT"),
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -19,7 +20,7 @@ config :sandbox, Sandbox.Repo,
 config :sandbox, SandboxWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
+  http: [ip: {127, 0, 0, 1}, port: System.get_env("PORT")],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
