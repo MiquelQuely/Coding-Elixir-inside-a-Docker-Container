@@ -2,11 +2,11 @@ import Config
 
 # Configure your database
 config :sandbox, Sandbox.Repo,
-  username: System.get_env("DB_USERNAME"),
-  password: System.get_env("DB_PASSWORD"),
-  hostname: System.get_env("DB_HOST"),
+  username: System.get_env("DB_USERNAME") || "Database username not found",
+  password: System.get_env("DB_PASSWORD") || "Database password not found",
+  hostname: System.get_env("DB_HOST") || "Database host not found",
   database: "sandbox_dev",
-  port: System.get_env("DB_PORT"),
+  port: System.get_env("DB_PORT") || raise "Database port not found",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -20,7 +20,7 @@ config :sandbox, Sandbox.Repo,
 config :sandbox, SandboxWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: System.get_env("PORT")],
+  http: [ip: {127, 0, 0, 1}, port: System.get_env("PORT") || raise "Port not found"],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,

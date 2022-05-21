@@ -14,10 +14,10 @@ services:
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
-      PGUSER: ${DB_USERNAME}
-      PGPASSWORD: ${DB_PASSWORD}
-      PGPORT: ${DB_PORT}
-      PGHOST: ${DB_HOST}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_PORT: ${DB_PORT}
+      DB_HOST: ${DB_HOST}
     depends_on:
       - database
   database:
