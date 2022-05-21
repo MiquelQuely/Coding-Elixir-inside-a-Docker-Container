@@ -9,11 +9,10 @@ RUN apt-get update && \
     mix archive.install hex phx_new 1.6.9 --force && \
     mix local.rebar --force
 
-ENV APP_HOME /app
+ENV APP_HOME /apps/
 RUN mkdir ${APP_HOME}
 COPY . ${APP_HOME}
-WORKDIR ${APP_HOME}
 
 RUN mix local.hex --force
 
-CMD ["mix", "phx.server"]
+EXPOSE 4000
