@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  phoenix:
+    build: 
+      # Here we define that it should build from the current directory.
+      context: .
+    volumes:
+      - ./src:/app
+    ports:
+      - "4000:4000"
+    environment:
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: database
+      PGPORT: 5432
+      
+      PGHOST: db
+    depends_on:
+      - db
+  db:
+    image: postgres:14.3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      
+volumes:
+   pgdata:
