@@ -1,6 +1,6 @@
 # ElixirDocker
  
-Example code of how to run and program inside an Elixir docker.
+Project example of how to run and program inside an Elixir Docker Container.
 
 ## Requirements
 
