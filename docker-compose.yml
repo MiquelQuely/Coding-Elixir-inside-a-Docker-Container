@@ -12,7 +12,6 @@ services:
     ports:
       - "${PORT}:4000"
     environment:
-      HOST: ${HOST}
       PORT: ${PORT}
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}

@@ -12,7 +12,7 @@ config :sandbox,
 
 # Configures the endpoint
 config :sandbox, SandboxWeb.Endpoint,
-  url: [host: System.get_env("HOST") || raise "Host not found"],
+  url: [host: "0.0.0.0" || raise "Host not found"],
   render_errors: [view: SandboxWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Sandbox.PubSub,
   live_view: [signing_salt: "N0Qv6PUC"]
