@@ -1,1 +1,0 @@
-{"buildTargets":["docker_build","docker_run_it"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
