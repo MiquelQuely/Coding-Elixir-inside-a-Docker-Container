@@ -12,7 +12,7 @@
 	"settings": {},
 	
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": ["eamodio.gitlens", "ZainChen.json", "JakeBecker.elixir-ls", "2gua.rainbow-brackets", "ms-azuretools.vscode-docker"],
+	"extensions": ["eamodio.gitlens", "ZainChen.json", "JakeBecker.elixir-ls", "2gua.rainbow-brackets"],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [4000,4000]
