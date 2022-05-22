@@ -13,6 +13,4 @@ ENV APP_HOME /code/
 RUN mkdir ${APP_HOME}
 COPY . ${APP_HOME}
 
-RUN mix local.hex --force
-
 EXPOSE 4000
