@@ -8,7 +8,7 @@ services:
       # Here we define that it should build from the current directory.
       context: .
     volumes:
-      - .:/src
+      - .:/code/
     ports:
       - "${PORT}:4000"
     environment:
