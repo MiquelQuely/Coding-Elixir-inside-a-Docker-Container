@@ -12,7 +12,13 @@
 	"settings": {},
 	
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": ["eamodio.gitlens", "ZainChen.json", "JakeBecker.elixir-ls", "2gua.rainbow-brackets"],
+	"extensions": [
+		"eamodio.gitlens", 
+		"ZainChen.json", 
+		"JakeBecker.elixir-ls", 
+		"2gua.rainbow-brackets", 
+		"yzhang.markdown-all-in-one"
+	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [4000,4000]
